@@ -1,0 +1,10 @@
+<%- include("../../partials/header.ejs")%>
+    <h1>List of Movie</h1>
+    <ul>
+        <%for(i=0; i<movies.length; i++){%>
+            <a href="/movies/<%=movies[i]._id%>">
+                <li><%=movies[i].title%></li>
+            </a>
+        <%}%>
+    </ul>
+<%- include("../../partials/footer.ejs")%>
