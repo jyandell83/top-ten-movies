@@ -15,6 +15,6 @@ router.delete("/:id", movieController.deleteMovie)
 
 router.get("/:id/edit", movieController.editMovie)
 
-// router.put("/:id", userController.updateUser)
+router.put("/:id", movieController.updateMovie)
 
 module.exports = router
