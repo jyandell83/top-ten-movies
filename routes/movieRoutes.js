@@ -9,7 +9,7 @@ router.get("/new", movieController.newMovie)
 
 router.post("/", movieController.postMovie)
 
-// router.get("/:id", userController.showUser)
+router.get("/:id", movieController.showMovie)
 
 // router.delete("/:id", userController.deleteUser)
 

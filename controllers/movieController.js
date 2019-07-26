@@ -24,6 +24,17 @@ const movieController = {
             next(err)
         }
     },
+    showMovie: async (req,res,next)  =>  {
+        try  {
+            const foundMovie = await Movies.findById(req.params.id);
+            console.log(foundMovie);
+            res.render('movies/show.ejs', {
+                movie: foundMovie
+            });
+        } catch(err)  {
+            next(err);
+        }
+    }
 }
 
 module.exports = movieController;
