@@ -1,14 +1,17 @@
 const express        = require('express');
-const bodyParser     = require('body-parser');
+// const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
 const session        = require('express-session');
 const app            = express();
 const movieRoutes = require("./routes/movieRoutes")
+const logger = require("morgan")
+
 
 //require database
 require('./db/db');
 //middleware
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(logger("dev"))
+app.use(express.urlencoded())
 app.use(methodOverride('_method'));
 
 app.use('/movies', movieRoutes);
