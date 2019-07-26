@@ -1,6 +1,6 @@
 <%- include("../../partials/header.ejs")%>
     <h1><%= user.userName%> Edit Page</h1>
-    <form action="/articles" method="post">
+    <form action="/users/<%=user._id%>?_method=PUT" method="POST">
         <select name="movieId">
 
           <%for (let i = 0; i < movies.length; i++){%>

@@ -36,6 +36,18 @@ const userController = {
         } catch(err)  {
             next(err)
         }
+    },
+    updateTopTen: async (req,res,next)  =>  {
+        try  {
+            console.log(req.body);
+            const foundUser = await Users.findById(req.params.id);
+            const movieId = await Movies.findById(req.body.movieId);
+            console.log(movieId);
+            foundUser.topTenMovies.push(movieId);
+            console.log(foundUser);
+        }  catch(err)  {
+            next(err)
+        }
     }
 }
 

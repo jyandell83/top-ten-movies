@@ -15,6 +15,6 @@ router.get("/:id", userController.showUser)
 
 router.get("/:id/edit", userController.editUser)
 
-// router.put("/:id", movieController.updateMovie)
+router.put("/:id", userController.updateTopTen)
 
 module.exports = router
