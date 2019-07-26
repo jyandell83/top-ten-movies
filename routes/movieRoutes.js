@@ -4,9 +4,10 @@ const movieController = require("../controllers/movieController")
 
 router.get("/", movieController.movieMain);
 
-// router.get("/new", userController.newUsers)
 
-// router.post("/", userController.postUsers)
+router.get("/new", movieController.newMovie)
+
+router.post("/", movieController.postMovie)
 
 // router.get("/:id", userController.showUser)
 
