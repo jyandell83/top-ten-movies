@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const session        = require('express-session');
 const app            = express();
 const movieRoutes = require("./routes/movieRoutes")
+const userRoutes = require("./routes/userRoutes")
 const logger = require("morgan")
 
 
@@ -17,6 +18,8 @@ app.use(express.static(__dirname + '/public'));
 
 
 app.use('/movies', movieRoutes);
+app.use('/users', userRoutes);
+
 
 app.get('/', (req, res) => {
     console.log('home page route hit');
