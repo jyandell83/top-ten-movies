@@ -7,13 +7,13 @@ const userController = require("../controllers/userController")
 
 router.get("/registration", userController.newUser)
 
-// router.post("/", movieController.postMovie)
+router.post("/", userController.createUser)
 
-// router.get("/:id", movieController.showMovie)
+router.get("/:id", userController.showUser)
 
 // router.delete("/:id", movieController.deleteMovie)
 
-// router.get("/:id/edit", movieController.editMovie)
+router.get("/:id/edit", userController.editUser)
 
 // router.put("/:id", movieController.updateMovie)
 

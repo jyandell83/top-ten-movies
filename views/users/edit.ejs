@@ -1,0 +1,12 @@
+<%- include("../../partials/header.ejs")%>
+    <h1><%= user.userName%> Edit Page</h1>
+    <form action="/articles" method="post">
+        <select name="movieId">
+
+          <%for (let i = 0; i < movies.length; i++){%>
+              <option value="<%=movies[i]._id%>"><%=movies[i].title%></option>
+          <%}%>
+        </select><br/>
+        <input type="submit" value="Update Top Ten"/>
+      </form>
+<%- include("../../partials/footer.ejs")%>

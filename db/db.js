@@ -4,7 +4,8 @@ const connectionString = 'mongodb://localhost/movie';
 
 
 mongoose.connect(connectionString, {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useCreateIndex: true
 });
 
 mongoose.connection.on('connected', () => {
