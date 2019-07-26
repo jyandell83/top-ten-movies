@@ -9,9 +9,14 @@ const movieController = {
     newMovie: (req,res)=>{
         res.render("movies/new.ejs")
     },
-    postMovie: (req,res)=>{
-        console.log(req.body)
-        console.log("new movie")
+    postMovie: async (req,res, next)=>{
+        try{
+            const newMovie = await Movies.create(req.body)
+            console.log(newMovie)
+            res.redirect("/movies")
+        } catch(err){
+            next(err)
+        }
     },
 }
 
