@@ -13,6 +13,8 @@ require('./db/db');
 app.use(logger("dev"))
 app.use(express.urlencoded())
 app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public'));
+
 
 app.use('/movies', movieRoutes);
 

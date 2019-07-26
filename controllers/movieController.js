@@ -2,9 +2,15 @@ const mongoose = require("mongoose")
 const Movies = require("../models/Movies")
 
 const movieController = {
-    movieMain: (req,res)  =>  {
-    console.log('movie main page route hit');
-    res.send('movie main page from controller');
+    movieMain: async (req,res, next)  =>  {
+    try{
+        const foundMovies = await Movies.find()
+        res.render("movies/index.ejs", {
+            movies: foundMovies
+        })
+    }catch(err){
+        next(err)
+    }
     },
     newMovie: (req,res)=>{
         res.render("movies/new.ejs")
