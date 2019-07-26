@@ -20,7 +20,7 @@ app.use('/movies', movieRoutes);
 
 app.get('/', (req, res) => {
     console.log('home page route hit');
-    res.send('home page is here');
+    res.render('index.ejs');
 
 });
 

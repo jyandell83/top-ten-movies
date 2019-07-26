@@ -1,0 +1,14 @@
+<%- include("../../partials/header.ejs")%>
+    <h1>Edit <%=movie.title%></h1>
+    <form action="/movies" method="POST">
+        Title
+        <input type="text" name="title" value="<%=movie.title%>" required><br>
+        Genre
+        <input type="text" name="genre" value="<%=movie.genre%>"><br>
+        Year
+        <input type="number" name="year" value="<%=movie.year%>"><br>
+        Add Image URL
+        <input type="text" name="img" value="<%=movie.img%>"><br>
+        <input type="submit" value="Edit Movie">
+    </form>
+<%- include("../../partials/footer.ejs")%>

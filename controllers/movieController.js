@@ -34,6 +34,25 @@ const movieController = {
         } catch(err)  {
             next(err);
         }
+    },
+    deleteMovie: async (req,res,next)  =>  {
+        try  {
+            console.log('movie should be deleted');
+            const deletedMovie = await Movies.findByIdAndDelete(req.params.id);
+            res.redirect('/movies');
+        }  catch(err)  {
+            next(err);
+        }
+    },
+    editMovie: async (req,res,next)  =>  {
+        try  {
+            const foundMovie = await Movies.findById(req.params.id);
+            res.render('movies/edit.ejs', {
+                movie: foundMovie
+            });
+        }  catch(err)  {
+            next(err);
+        }
     }
 }
 

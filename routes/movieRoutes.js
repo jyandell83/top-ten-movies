@@ -11,9 +11,9 @@ router.post("/", movieController.postMovie)
 
 router.get("/:id", movieController.showMovie)
 
-// router.delete("/:id", userController.deleteUser)
+router.delete("/:id", movieController.deleteMovie)
 
-// router.get("/:id/edit", userController.editUser)
+router.get("/:id/edit", movieController.editMovie)
 
 // router.put("/:id", userController.updateUser)
 

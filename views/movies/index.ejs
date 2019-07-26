@@ -4,7 +4,10 @@
         <%for(i=0; i<movies.length; i++){%>
             <a href="/movies/<%=movies[i]._id%>">
                 <li><%=movies[i].title%></li>
-            </a>
+            </a> <br />
+            <form action="/movies/<%=movies[i]._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Movie">
+            </form></br>
         <%}%>
     </ul>
 <%- include("../../partials/footer.ejs")%>
