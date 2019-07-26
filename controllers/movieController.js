@@ -53,6 +53,14 @@ const movieController = {
         }  catch(err)  {
             next(err);
         }
+    },
+    updateMovie: async(req,res,next)=>{
+        try{
+            await Movies.findByIdAndUpdate(req.params.id, req.body)
+            res.redirect("/movies")
+        }catch(err){
+            next(err);
+        }
     }
 }
 

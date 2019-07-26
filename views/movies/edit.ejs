@@ -1,6 +1,6 @@
 <%- include("../../partials/header.ejs")%>
     <h1>Edit <%=movie.title%></h1>
-    <form action="/movies" method="POST">
+    <form action="/movies/<%=movie._id%>?_method=PUT" method="POST">
         Title
         <input type="text" name="title" value="<%=movie.title%>" required><br>
         Genre
