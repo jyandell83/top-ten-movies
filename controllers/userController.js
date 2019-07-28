@@ -42,9 +42,9 @@ const userController = {
             console.log(req.body);
             const foundUser = await Users.findById(req.params.id);
             const movieId = await Movies.findById(req.body.movieId);
-            console.log(movieId);
-            foundUser.topTenMovies.push(movieId);
-            console.log(foundUser);
+            await foundUser.topTenMovies.push(movieId);
+            await foundUser.save()
+            res.redirect("/users/"+foundUser._id)
         }  catch(err)  {
             next(err)
         }
