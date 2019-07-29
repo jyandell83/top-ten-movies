@@ -1,5 +1,5 @@
 body  {
-    background-color: lavender;
+    background-color: #95bf3b;
     text-align: center;
 }
 .wrapper  {
@@ -14,17 +14,36 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: white;
+    background-color: #01260A;
 }
+ a{
+     color: white;
+ }
+
+ #logo{
+    font-family: 'Butcherman', cursive;
+    font-size: 80px;
+ }
+
+ a:hover{
+     color: #95bf3b;
+ }
+
 .reg-wrapper {
     grid-column: 1 / 3;
 }
 .log-wrapper {
     grid-column: 3 / 5;
 }
-#logo  {
-    grid-column: 1;
+#header {
+    background-color: #95bf3b;
+    text-align: left;
+    min-height: 250px;
+    background-position: center;
+    grid-column: 1/5;
+    color: black;
 }
+
 h1  {
     grid-column: 1 / 5;
 }
