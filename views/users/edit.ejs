@@ -1,12 +1,14 @@
 <%- include("../../partials/header.ejs")%>
     <h1><%= user.userName%> Edit Page</h1>
     <form action="/users/<%=user._id%>?_method=PUT" method="POST">
-        <select name="movieId">
+      <%for(j=0;j<3;j++){%>
+        <select name="<%=j%>">
 
           <%for (let i = 0; i < movies.length; i++){%>
               <option value="<%=movies[i]._id%>"><%=movies[i].title%></option>
           <%}%>
-        </select><br/>
-        <input type="submit" value="Update Top Ten"/>
-      </form>
+        </select><br>
+      <%}%>
+      <input type="submit" value="Update Top Ten"/>
+    </form>
 <%- include("../../partials/footer.ejs")%>
