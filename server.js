@@ -28,7 +28,9 @@ app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
     console.log('home page route hit');
-    res.render('index.ejs');
+    res.render('index.ejs',  {
+        session: req.session
+    });
 
 });
 

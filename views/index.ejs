@@ -1,2 +1,9 @@
+<%if (session.logged)  {%>
 <%- include("../partials/header.ejs")%>
+<%} else {%>
+<%- include("../partials/headerLoggedOut.ejs")%>
+<%};%>
+
+
+
 <%- include("../partials/footer.ejs")%>
