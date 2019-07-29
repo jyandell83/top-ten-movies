@@ -5,7 +5,9 @@ const bcrypt = require('bcryptjs');
 
 const userController = {
     newUser: (req,res)=>{
-        res.render("users/registration.ejs")
+        res.render("users/registration.ejs", {
+            message: req.session.message
+        })
     },
     userIndex: async (req,res,next)  =>  {
         try  {
@@ -36,6 +38,25 @@ const userController = {
         try{
             const foundUser = await Users.findOne({userName: req.body.userName})
             console.log(foundUser, "foundUser in login")
+
+            if (foundUser){
+                if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+                    req.session.userId = foundUser._id
+                    req.session.userName = foundUser.userName
+                    req.session.logged = true
+
+                    res.redirect("/users")
+                }else{
+                    req.session.message = "Username or Password incorrect"
+
+                    res.redirect("/users/registration")
+                }
+            } else {
+                    req.session.message = "Username or Password incorrect"
+
+                    res.redirect("/users/registration")
+
+            }
         } catch(err)  {
             next(err)
         }

@@ -1,4 +1,7 @@
 <%- include("../../partials/header.ejs")%>
+
+    <span><%=message%></span>
+
     <h1>Registration</h1>
     <form action="/users" method="POST">
         Username
@@ -13,7 +16,7 @@
         Username
         <input type="text" name="userName" required><br>
         Password
-        <input type="text" name="password"><br>
+        <input type="password" name="password"><br>
         <input type="submit" value="Register">
     </form>
 <%- include("../../partials/footer.ejs")%>
