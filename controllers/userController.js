@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const Users = require("../models/Users")
 const Movies = require("../models/Movies")
+const bcrypt = require('bcryptjs');
 
 const userController = {
     newUser: (req,res)=>{
@@ -17,8 +18,14 @@ const userController = {
         }
     },
     createUser: async (req,res,next)  => {
+        const password = req.body.password;
+        const hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+        req.body.password = hashedPassword;
         try{
             const createdUser = await Users.create(req.body);
+            req.session.userId = createdUser._id;
+            req.session.userName = createdUser.userName;
+            req.session.logged = true;
             res.redirect('/users/'+createdUser._id);
         } catch(err)  {
             next(err)
@@ -26,6 +33,7 @@ const userController = {
     },
     showUser: async (req,res,next)  =>  {
         try  {
+            console.log(req.session, "from show USer page");
             const foundUser = await Users.findById(req.params.id).populate('topTenMovies')
             res.render('users/show.ejs', {
                 user: foundUser
