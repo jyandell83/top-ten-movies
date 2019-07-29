@@ -1,4 +1,8 @@
-<%- include("../../partials/header.ejs")%>
+<%if (session.logged)  {%>
+    <%- include("../partials/header.ejs")%>
+    <%} else {%>
+    <%- include("../partials/headerLoggedOut.ejs")%>
+    <%};%>
     <%for (let i = 0; i < users.length; i++)  {%>
         <a href="/users/<%=users[i]._id%>">
             <h2><%=users[i].userName%></h2>

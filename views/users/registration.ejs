@@ -1,4 +1,8 @@
-<%- include("../../partials/header.ejs")%>
+<%if (session.logged)  {%>
+    <%- include("../partials/header.ejs")%>
+    <%} else {%>
+    <%- include("../partials/headerLoggedOut.ejs")%>
+    <%};%>
 
     <span><%=message%></span>
     <div class="reg-wrapper">

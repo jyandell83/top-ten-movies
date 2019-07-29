@@ -1,4 +1,8 @@
-<%- include("../../partials/header.ejs")%>
+<%if (session.logged)  {%>
+    <%- include("../partials/header.ejs")%>
+    <%} else {%>
+    <%- include("../partials/headerLoggedOut.ejs")%>
+    <%};%>
     <h1>Edit <%=movie.title%></h1>
     <form action="/movies/<%=movie._id%>?_method=PUT" method="POST">
         Title
