@@ -5,7 +5,9 @@ const bcrypt = require('bcryptjs');
 
 const userController = {
     newUser: (req,res)=>{
-        res.render("users/registration.ejs")
+        res.render("users/registration.ejs", {
+            message: req.session.message
+        })
     },
     userIndex: async (req,res,next)  =>  {
         try  {
@@ -31,6 +33,47 @@ const userController = {
             next(err)
         }
     },
+
+    loginUser: async (req,res,next)  => {
+        try{
+            const foundUser = await Users.findOne({userName: req.body.userName})
+            console.log(foundUser, "foundUser in login")
+
+            if (foundUser){
+                if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+                    req.session.userId = foundUser._id
+                    req.session.userName = foundUser.userName
+                    req.session.logged = true
+
+                    res.redirect("/users")
+                }else{
+                    req.session.message = "Username or Password incorrect"
+
+                    res.redirect("/users/registration")
+                }
+            } else {
+                    req.session.message = "Username or Password incorrect"
+
+                    res.redirect("/users/registration")
+
+            }
+        } catch(err)  {
+            next(err)
+        }
+    },
+
+    logOutUser:  (req,res)  =>  {
+        console.log(req.session, "session before logout")
+        req.session.destroy((err) =>{
+            if (err){
+                res.send(err)
+            } else {
+                res.redirect("/users/registration")
+                console.log(req.session, "session after logout")
+            }
+        })
+    },
+
     showUser: async (req,res,next)  =>  {
         try  {
             console.log(req.session, "from show USer page");

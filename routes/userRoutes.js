@@ -8,6 +8,10 @@ router.get("/registration", userController.newUser)
 
 router.post("/", userController.createUser)
 
+router.post("/login", userController.loginUser)
+
+router.get("/logout", userController.logOutUser)
+
 router.get("/:id", userController.showUser)
 
 // router.delete("/:id", movieController.deleteMovie)
