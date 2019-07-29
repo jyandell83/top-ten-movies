@@ -2,8 +2,7 @@ const express = require("express")
 const router = express.Router()
 const userController = require("../controllers/userController")
 
-// router.get("/", movieController.movieMain);
-
+router.get("/", userController.userIndex);
 
 router.get("/registration", userController.newUser)
 

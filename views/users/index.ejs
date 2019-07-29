@@ -1,0 +1,7 @@
+<%- include("../../partials/header.ejs")%>
+    <%for (let i = 0; i < users.length; i++)  {%>
+        <a href="/users/<%=users[i]._id%>">
+            <h2><%=users[i].userName%></h2>
+        </a>
+    <%}%>
+<%- include("../../partials/footer.ejs")%>

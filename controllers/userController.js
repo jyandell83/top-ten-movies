@@ -6,6 +6,16 @@ const userController = {
     newUser: (req,res)=>{
         res.render("users/registration.ejs")
     },
+    userIndex: async (req,res,next)  =>  {
+        try  {
+            const foundUsers = await Users.find();
+            res.render("users/index.ejs", {
+                users: foundUsers
+            })
+        } catch(err)  {
+            next(err);
+        }
+    },
     createUser: async (req,res,next)  => {
         try{
             const createdUser = await Users.create(req.body);
