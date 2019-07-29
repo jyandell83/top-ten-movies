@@ -62,6 +62,18 @@ const userController = {
         }
     },
 
+    logOutUser:  (req,res)  =>  {
+        console.log(req.session, "session before logout")
+        req.session.destroy((err) =>{
+            if (err){
+                res.send(err)
+            } else {
+                res.redirect("/users/registration")
+                console.log(req.session, "session after logout")
+            }
+        })
+    },
+
     showUser: async (req,res,next)  =>  {
         try  {
             console.log(req.session, "from show USer page");
