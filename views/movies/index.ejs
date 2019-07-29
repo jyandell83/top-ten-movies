@@ -1,13 +1,15 @@
 <%- include("../../partials/header.ejs")%>
     <h1>List of Movie</h1>
-    <ul>
+    
         <%for(i=0; i<movies.length; i++){%>
+            <div>
             <a href="/movies/<%=movies[i]._id%>">
-                <li><%=movies[i].title%></li>
-            </a> <br />
+                <%=movies[i].title%>
+            </a> 
             <form action="/movies/<%=movies[i]._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete Movie">
-            </form></br>
+            </form>
+        </div>
         <%}%>
-    </ul>
+    
 <%- include("../../partials/footer.ejs")%>
