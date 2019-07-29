@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     topTenMovies: [{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Movies'
+        ref: 'Movie'
       }]
 });
 

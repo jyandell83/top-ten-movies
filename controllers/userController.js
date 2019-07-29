@@ -16,8 +16,12 @@ const userController = {
     },
     showUser: async (req,res,next)  =>  {
         try  {
-            const foundUser = await Users.findById(req.params.id);
-            console.log(foundUser);
+            const foundUser = await Users.findById(req.params.id).populate('topTenMovies')
+            console.log(foundUser, 'from show page ---- should be populated');
+            // const foundUser = await Users.findById(req.params.id);
+            // const foundMovies = await Users.findById(req.params.id).populate('topTenMovies');
+            // console.log(foundMovies)
+            // console.log(foundUser);
             res.render('users/show.ejs', {
                 user: foundUser
             });

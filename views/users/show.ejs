@@ -1,4 +1,6 @@
 <%- include("../../partials/header.ejs")%>
     <h1><%= user.userName%> Show Page</h1>
-    
+    <%for (let i =0; i< user.topTenMovies.length; i++) {%>
+    <p><%=user.topTenMovies[i].title%></p>
+    <%}%>
 <%- include("../../partials/footer.ejs")%>
