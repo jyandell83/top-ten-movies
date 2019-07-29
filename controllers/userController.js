@@ -31,6 +31,16 @@ const userController = {
             next(err)
         }
     },
+
+    loginUser: async (req,res,next)  => {
+        try{
+            const foundUser = await Users.findOne({userName: req.body.userName})
+            console.log(foundUser, "foundUser in login")
+        } catch(err)  {
+            next(err)
+        }
+    },
+
     showUser: async (req,res,next)  =>  {
         try  {
             console.log(req.session, "from show USer page");
