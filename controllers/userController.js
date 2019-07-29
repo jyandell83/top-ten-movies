@@ -53,7 +53,7 @@ const userController = {
                 foundUser.topTenMovies.pop()
             }
 
-            for (i=0; i<3; i++){
+            for (i=0; i<10; i++){
                 let movieId = await Movies.findById(req.body[i]);
                 console.log(movieId, "in for loop")
                 await foundUser.topTenMovies.push(movieId);
