@@ -11,6 +11,11 @@ const logger = require("morgan")
 //require database
 require('./db/db');
 //middleware
+
+app.use(session({
+    secret: 'RANDOMMOVIESTOPTEN1234',
+    resave: false, 
+    saveUninitialized: false}));
 app.use(logger("dev"))
 app.use(express.urlencoded())
 app.use(methodOverride('_method'));
