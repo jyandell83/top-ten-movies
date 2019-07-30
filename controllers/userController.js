@@ -92,7 +92,7 @@ const userController = {
             const foundUser = await Users.findById(req.params.id);
             const foundMovies = await Movies.find({});
             res.render('users/edit.ejs', {
-                user:foundUser,
+                user: foundUser,
                 movies: foundMovies,
                 session: req.session
             })
@@ -101,8 +101,9 @@ const userController = {
         }
     },
     updateTopTen: async (req,res,next)  =>  {
+        const foundUser = await Users.findById(req.params.id);
         try  {
-            const foundUser = await Users.findById(req.params.id);
+            req.session.message = null
             for(i=foundUser.topTenMovies.length; i>0; i--){
                 foundUser.topTenMovies.pop()
             }
@@ -120,6 +121,8 @@ const userController = {
             console.log(foundUser, "after saving")
             res.redirect("/users/"+foundUser._id)
         }  catch(err)  {
+            req.session.message = "Pick all movies"
+            res.redirect("/users/"+foundUser._id+"/edit")
             next(err)
         }
     }
