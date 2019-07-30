@@ -14,7 +14,11 @@
               <%}%>
           <%} else{%>
              <%for (let i = 0; i < movies.length; i++){%>
-              <option value="<%=movies[i]._id%>"><%=movies[i].title%></option>
+              <% if (user.topTenMovies[j].toString() === movies[i]._id.toString()) {%>
+                 <option value="<%=movies[i]._id%>" selected="selected"><%=movies[i].title%></option>
+                 <% }else { %>
+                  <option value="<%=movies[i]._id%>"><%=movies[i].title%></option>
+              <%}%>
           <%}%>
           <%}%>
         </select><br>
