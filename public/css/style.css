@@ -6,7 +6,7 @@ body  {
 }
 .wrapper  {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 nav  {
     grid-column: 1 / 5;
@@ -17,6 +17,10 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #32738C;
+}
+nav li {
+    display: inline;
+    float: left;
 }
 a {
     color: white;
@@ -50,22 +54,26 @@ a:hover {
     background-color: #32738C;
     color: #F27294;
     border-radius: 5px;
+    height: 30px;
+    border: 1px solid #F27052;
     transition:background-color 0.3s, color 0.3s ease-in-out;
 }
 .button:hover  {
     background-color: #F27294;
     color: #32738C;
 }
-
-
+.movie-list  {
+    grid-column: 2 / 4;
+}
+#movie-icon  {
+    font-size: 50px;
+}
 h1  {
     grid-column: 1 / 5;
 }
 li {
     list-style-type: none;
-    float: left;
     padding: 14px 16px;
-    text-align: center;
 }
 img {
     width: 200px;

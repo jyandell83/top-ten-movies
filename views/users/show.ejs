@@ -4,7 +4,7 @@
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
     <h1><%= user.userName%> Show Page</h1>
-    <ul>
+    <ul class ="movie-list">
         <%for (let i =0; i< user.topTenMovies.length; i++) {%>
             <li>#<%=i+1%> <%=user.topTenMovies[i].title%></li>
         <%}%>
