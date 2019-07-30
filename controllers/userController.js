@@ -39,7 +39,6 @@ const userController = {
     loginUser: async (req,res,next)  => {
         try{
             const foundUser = await Users.findOne({userName: req.body.userName})
-            console.log(foundUser, "foundUser in login")
 
             if (foundUser){
                 if(bcrypt.compareSync(req.body.password, foundUser.password)) {
@@ -65,24 +64,24 @@ const userController = {
     },
 
     logOutUser:  (req,res)  =>  {
-        console.log(req.session, "session before logout")
         req.session.destroy((err) =>{
             if (err){
                 res.send(err)
             } else {
                 res.redirect("/users/registration")
-                console.log(req.session, "session after logout")
             }
         })
     },
 
     showUser: async (req,res,next)  =>  {
         try  {
-            console.log(req.session, "from show USer page");
+            const foundMovies = await Movies.find({});
             const foundUser = await Users.findById(req.params.id).populate('topTenMovies')
+            console.log(foundUser, "in show page")
             res.render('users/show.ejs', {
                 user: foundUser,
-                session: req.session
+                session: req.session,
+                movies: foundMovies
             });
         } catch(err)  {
             next(err)
@@ -110,11 +109,15 @@ const userController = {
 
             for (i=0; i<10; i++){
                 let movieId = await Movies.findById(req.body[i]);
-                console.log(movieId, "in for loop")
+                console.log(movieId, "movieID", i)
+                movieId.score += 10 - i 
+                await movieId.save()
                 await foundUser.topTenMovies.push(movieId);
             }
+            console.log(foundUser, "before saving")
             await foundUser.save()
-            console.log(foundUser, "<--user after an update")
+            await 
+            console.log(foundUser, "after saving")
             res.redirect("/users/"+foundUser._id)
         }  catch(err)  {
             next(err)

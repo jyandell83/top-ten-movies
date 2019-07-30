@@ -4,8 +4,10 @@
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
     <h1><%= user.userName%> Show Page</h1>
-    <%for (let i =0; i< user.topTenMovies.length; i++) {%>
-    <p><%=user.topTenMovies[i].title%></p>
-    <%}%>
+    <ul>
+        <%for (let i =0; i< user.topTenMovies.length; i++) {%>
+            <li>#<%=i+1%> <%=user.topTenMovies[i].title%></li>
+        <%}%>
+    </ul>
     <a href="<%=user._id%>/edit"><button class="button">Edit Your Top Ten Movies</button></a>
 <%- include("../../partials/footer.ejs")%>
