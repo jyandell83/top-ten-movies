@@ -6,7 +6,7 @@ body  {
 }
 .wrapper  {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 nav  {
     grid-column: 1 / 5;
@@ -17,6 +17,10 @@ nav ul {
     padding: 0;
     overflow: hidden;
     background-color: #32738C;
+}
+nav li {
+    display: inline;
+    float: left;
 }
 a {
     color: white;
@@ -56,16 +60,16 @@ a:hover {
     background-color: #F27294;
     color: #32738C;
 }
-
+.movie-list  {
+    grid-column: 2 / 4;
+}
 
 h1  {
     grid-column: 1 / 5;
 }
 li {
     list-style-type: none;
-    float: left;
     padding: 14px 16px;
-    text-align: center;
 }
 img {
     width: 200px;
