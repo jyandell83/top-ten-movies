@@ -6,14 +6,16 @@ const bcrypt = require('bcryptjs');
 const userController = {
     newUser: (req,res)=>{
         res.render("users/registration.ejs", {
-            message: req.session.message
+            message: req.session.message,
+            session: req.session
         })
     },
     userIndex: async (req,res,next)  =>  {
         try  {
             const foundUsers = await Users.find();
             res.render("users/index.ejs", {
-                users: foundUsers
+                users: foundUsers,
+                session: req.session
             })
         } catch(err)  {
             next(err);
@@ -79,7 +81,8 @@ const userController = {
             console.log(req.session, "from show USer page");
             const foundUser = await Users.findById(req.params.id).populate('topTenMovies')
             res.render('users/show.ejs', {
-                user: foundUser
+                user: foundUser,
+                session: req.session
             });
         } catch(err)  {
             next(err)
@@ -91,7 +94,8 @@ const userController = {
             const foundMovies = await Movies.find({});
             res.render('users/edit.ejs', {
                 user:foundUser,
-                movies: foundMovies
+                movies: foundMovies,
+                session: req.session
             })
         } catch(err)  {
             next(err)

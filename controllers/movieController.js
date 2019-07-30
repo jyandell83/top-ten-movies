@@ -6,14 +6,17 @@ const movieController = {
     try{
         const foundMovies = await Movies.find()
         res.render("movies/index.ejs", {
-            movies: foundMovies
+            movies: foundMovies,
+            session: req.session
         })
     }catch(err){
         next(err)
     }
     },
     newMovie: (req,res)=>{
-        res.render("movies/new.ejs")
+        res.render("movies/new.ejs", {
+            session: req.session
+        })
     },
     postMovie: async (req,res, next)=>{
         try{
@@ -29,7 +32,8 @@ const movieController = {
             const foundMovie = await Movies.findById(req.params.id);
             console.log(foundMovie);
             res.render('movies/show.ejs', {
-                movie: foundMovie
+                movie: foundMovie,
+                session: req.session
             });
         } catch(err)  {
             next(err);
@@ -48,7 +52,8 @@ const movieController = {
         try  {
             const foundMovie = await Movies.findById(req.params.id);
             res.render('movies/edit.ejs', {
-                movie: foundMovie
+                movie: foundMovie,
+                session: req.session
             });
         }  catch(err)  {
             next(err);
