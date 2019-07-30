@@ -3,7 +3,9 @@
 <%} else {%>
 <%- include("../partials/headerLoggedOut.ejs")%>
 <%};%>
-
-
-
+<ul>
+<%for (i=0; i<10; i++){%>
+<li>#<%=i+1%> <%=movies[i].title%></li>
+<%}%>
+</ul>
 <%- include("../partials/footer.ejs")%>

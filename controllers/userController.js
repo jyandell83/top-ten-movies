@@ -96,7 +96,6 @@ const userController = {
                 movies: foundMovies,
                 session: req.session
             })
-            console.log(foundMovies)
         } catch(err)  {
             next(err)
         }
@@ -111,11 +110,13 @@ const userController = {
             for (i=0; i<10; i++){
                 let movieId = await Movies.findById(req.body[i]);
                 console.log(movieId, "movieID", i)
-                movieId.score = 10-i
+                movieId.score += 10 - i 
+                await movieId.save()
                 await foundUser.topTenMovies.push(movieId);
             }
             console.log(foundUser, "before saving")
             await foundUser.save()
+            await 
             console.log(foundUser, "after saving")
             res.redirect("/users/"+foundUser._id)
         }  catch(err)  {

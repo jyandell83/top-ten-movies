@@ -1,4 +1,6 @@
 const express        = require('express');
+const mongoose = require("mongoose")
+const Movies = require("./models/Movies")
 // const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
 const session        = require('express-session');
@@ -26,11 +28,18 @@ app.use('/movies', movieRoutes);
 app.use('/users', userRoutes);
 
 
-app.get('/', (req, res) => {
-    console.log('home page route hit');
-    res.render('index.ejs',  {
-        session: req.session
+app.get('/', async (req, res, next) => {
+    try{
+        const foundMovies = await Movies.find({}).sort({score: "desc"})
+        console.log(foundMovies)
+        res.render('index.ejs',  {
+        session: req.session,
+        movies: foundMovies
     });
+
+    } catch (err){
+        next(err)
+    }
 
 });
 
