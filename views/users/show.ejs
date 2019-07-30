@@ -9,5 +9,12 @@
             <li>#<%=i+1%> <%=user.topTenMovies[i].title%></li>
         <%}%>
     </ul>
+    <%if (session.userId == user._id)  {%>  
+    <div>
     <a href="<%=user._id%>/edit"><button class="button">Edit Your Top Ten Movies</button></a>
+    <form action="/users/<%=user._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Account" class="button">
+    </form>
+    </div>
+    <%}%>
 <%- include("../../partials/footer.ejs")%>

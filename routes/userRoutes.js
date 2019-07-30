@@ -14,7 +14,7 @@ router.get("/logout", userController.logOutUser)
 
 router.get("/:id", userController.showUser)
 
-// router.delete("/:id", movieController.deleteMovie)
+router.delete("/:id", userController.deleteUser)
 
 router.get("/:id/edit", userController.editUser)
 

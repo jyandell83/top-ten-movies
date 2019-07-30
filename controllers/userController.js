@@ -30,7 +30,7 @@ const userController = {
             req.session.userId = createdUser._id;
             req.session.userName = createdUser.userName;
             req.session.logged = true;
-            res.redirect('/users/'+createdUser._id);
+            res.redirect('/users/'+createdUser._id+'/edit');
         } catch(err)  {
             next(err)
         }
@@ -98,6 +98,15 @@ const userController = {
             })
         } catch(err)  {
             next(err)
+        }
+    },
+    deleteUser: async (req,res,next)  =>  {
+        try  {
+            console.log('user should be deleted');
+            const deletedUser = await Users.findByIdAndDelete(req.params.id);
+            res.redirect('/');
+        }  catch(err)  {
+            next(err);
         }
     },
     updateTopTen: async (req,res,next)  =>  {
