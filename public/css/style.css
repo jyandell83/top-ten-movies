@@ -54,6 +54,8 @@ a:hover {
     background-color: #32738C;
     color: #F27294;
     border-radius: 5px;
+    height: 30px;
+    border: 1px solid #F27052;
     transition:background-color 0.3s, color 0.3s ease-in-out;
 }
 .button:hover  {
@@ -63,7 +65,9 @@ a:hover {
 .movie-list  {
     grid-column: 2 / 4;
 }
-
+#movie-icon  {
+    font-size: 50px;
+}
 h1  {
     grid-column: 1 / 5;
 }
