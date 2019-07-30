@@ -77,7 +77,6 @@ const userController = {
         try  {
             const foundMovies = await Movies.find({});
             const foundUser = await Users.findById(req.params.id).populate('topTenMovies')
-            console.log(foundUser, "in show page")
             res.render('users/show.ejs', {
                 user: foundUser,
                 session: req.session,
@@ -91,11 +90,13 @@ const userController = {
         try {
             const foundUser = await Users.findById(req.params.id);
             const foundMovies = await Movies.find({});
+            let switcher = True
             if(req.session.userId === req.params.id) {
                 res.render('users/edit.ejs', {
                     user: foundUser,
                     movies: foundMovies,
-                    session: req.session
+                    session: req.session,
+                    switcher: switcher
                 })
             } else{
                 res.redirect("/")
@@ -106,7 +107,6 @@ const userController = {
     },
     deleteUser: async (req,res,next)  =>  {
         try  {
-            console.log('user should be deleted');
             const deletedUser = await Users.findByIdAndDelete(req.params.id);
             res.redirect('/');
         }  catch(err)  {
@@ -123,15 +123,12 @@ const userController = {
 
             for (i=0; i<10; i++){
                 let movieId = await Movies.findById(req.body[i]);
-                console.log(movieId, "movieID", i)
                 movieId.score += 10 - i 
                 await movieId.save()
                 await foundUser.topTenMovies.push(movieId);
             }
-            console.log(foundUser, "before saving")
             await foundUser.save()
             await 
-            console.log(foundUser, "after saving")
             res.redirect("/users/"+foundUser._id)
         }  catch(err)  {
             req.session.message = "Pick all movies"
