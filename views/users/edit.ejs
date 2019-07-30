@@ -7,12 +7,19 @@
     <form action="/users/<%=user._id%>?_method=PUT" method="POST">
       <%for(j=0;j<10;j++){%>
         <select name="<%=j%>">
-
-          <%for (let i = 0; i < movies.length; i++){%>
+          <%if(!user.topTenMovies[j]){%>
+            <option>Choose your movie #<%=j+1%></option>
+            <%for (let i = 0; i < movies.length; i++){%>
               <option value="<%=movies[i]._id%>"><%=movies[i].title%></option>
+              <%}%>
+          <%} else{%>
+             <%for (let i = 0; i < movies.length; i++){%>
+              <option value="<%=movies[i]._id%>"><%=movies[i].title%></option>
+          <%}%>
           <%}%>
         </select><br>
       <%}%>
       <input type="submit" value="Update Top Ten" class="button"/>
     </form>
+    <span><%=session.message%></span>
 <%- include("../../partials/footer.ejs")%>
