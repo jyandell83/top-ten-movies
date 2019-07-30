@@ -91,11 +91,15 @@ const userController = {
         try {
             const foundUser = await Users.findById(req.params.id);
             const foundMovies = await Movies.find({});
-            res.render('users/edit.ejs', {
-                user: foundUser,
-                movies: foundMovies,
-                session: req.session
-            })
+            if(req.session.userId === req.params.id) {
+                res.render('users/edit.ejs', {
+                    user: foundUser,
+                    movies: foundMovies,
+                    session: req.session
+                })
+            } else{
+                res.redirect("/")
+            }
         } catch(err)  {
             next(err)
         }
