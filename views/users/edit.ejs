@@ -1,7 +1,7 @@
 <%if (session.logged)  {%>
-  <%- include("../partials/header.ejs")%>
+  <%- include("../../partials/header.ejs")%>
   <%} else {%>
-  <%- include("../partials/headerLoggedOut.ejs")%>
+  <%- include("../../partials/headerLoggedOut.ejs")%>
   <%};%>
     <h1><%= user.userName%> Edit Page</h1>
     <form action="/users/<%=user._id%>?_method=PUT" method="POST">
