@@ -3,9 +3,9 @@
     <%} else {%>
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
-    <div class="movie-list">
-    <h1>Add a Movie</h1>
-        <div class="container">
+    <div class="add-movie-list">
+        <div>
+        <h1>Add a Movie</h1>
             <form action="/movies" method="POST">
                 Title
                 <input type="text" name="title" required><br>

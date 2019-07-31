@@ -76,6 +76,11 @@ a:hover {
     align-items: center;
     justify-content: center;
 }
+.add-movie-list  {
+    grid-column: 2 / 3;
+    
+    text-align: right;
+}
 .comment-box > p {
     border: 1px solid #32738C;
 }
@@ -102,13 +107,4 @@ img {
 }
 ul{
     padding-inline-start: 0;
-}
-.container{
-    width: 500px;
-    grid-column: 2 / 4;
-    align-items: center;
-    justify-content: center;
-}
-.container input{
-    width: 100%;
 }
