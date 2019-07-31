@@ -65,6 +65,12 @@ a:hover {
 .movie-list  {
     grid-column: 2 / 4;
 }
+.comment-box > p {
+    border: 1px solid #32738C;
+}
+.cmnt:nth-child(odd)  {
+    border: 1px solid #F27052;
+}
 #movie-icon  {
     font-size: 50px;
 }

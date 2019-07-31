@@ -90,7 +90,7 @@ const userController = {
         try {
             const foundUser = await Users.findById(req.params.id);
             const foundMovies = await Movies.find({});
-            let switcher = True
+            let switcher = true
             if(req.session.userId === req.params.id) {
                 res.render('users/edit.ejs', {
                     user: foundUser,
