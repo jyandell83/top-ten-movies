@@ -7,7 +7,6 @@ const commentController = {
     postComment: async (req,res, next)  =>  {
         try  {
             const createdComment = await Comments.create(req.body);
-            console.log(createdComment);
             res.redirect('back');
         } catch(err) {
             next(err)

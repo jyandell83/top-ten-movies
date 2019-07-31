@@ -135,27 +135,6 @@ const userController = {
             res.redirect("/users/"+foundUser._id+"/edit")
             next(err)
         }
-    },
-    updateLikes: async (req,res,next)  =>  {
-        const foundUser = await Users.findById(req.params.id);
-        try  {
-            console.log(foundUser, 'from like button before likes updated');
-            if (req.body.isLiked === 'Like')  {
-                foundUser.likes += 1;
-            } else {
-                foundUser.likes -= 1;
-            }
-            console.log(req.body, "this should be req.body");
-            foundUser.save();
-            console.log('--------------------------------');
-            console.log('like button route is hitting');
-            console.log('--------------------------------');
-            console.log(foundUser, 'from like button After likes updated');
-            res.redirect('back');
-        }  catch(err)  {
-            
-            next(err)
-        }
     }
 }
 
