@@ -1,6 +1,12 @@
-const likeButton = document.getElementById("likeButton")
+// const likeButton = document.getElementById("likeButton")
 
 
-likeButton.addEventListener("click", ()=>{
+// likeButton.addEventListener("click", ()=>{
     
+// })
+
+const commentBtn = document.querySelector('#comment-btn');
+
+commentBtn.addEventListener('click', ()  =>  {
+    location.reload();
 })
