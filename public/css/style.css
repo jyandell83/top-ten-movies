@@ -8,6 +8,11 @@ body  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+.wrapper2  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
 nav  {
     grid-column: 1 / 5;
 }
@@ -47,8 +52,12 @@ a:hover {
     color: #F27052;
     background-color: #1A1A26;
     text-align: left;
+    display: grid;
+    align-items: end;
+    grid-template-columns: 1fr 1fr;
     background-position: center;
     grid-column: 1/5;
+    padding: 0 10px;
 }
 .button  {
     background-color: #32738C;
@@ -64,6 +73,8 @@ a:hover {
 }
 .movie-list  {
     grid-column: 2 / 4;
+    align-items: center;
+    justify-content: center;
 }
 .comment-box > p {
     border: 1px solid #32738C;
@@ -74,8 +85,13 @@ a:hover {
 #movie-icon  {
     font-size: 50px;
 }
-h1  {
+/* h1  {
     grid-column: 1 / 5;
+} */
+#moto{
+    justify-self: end;
+    font-weight: 500;
+    text-decoration: none;
 }
 li {
     list-style-type: none;
@@ -83,4 +99,16 @@ li {
 }
 img {
     width: 200px;
+}
+ul{
+    padding-inline-start: 0;
+}
+.container{
+    width: 500px;
+    grid-column: 2 / 4;
+    align-items: center;
+    justify-content: center;
+}
+.container input{
+    width: 100%;
 }

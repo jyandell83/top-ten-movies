@@ -3,17 +3,19 @@
     <%} else {%>
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
+    <div class="movie-list">
     <h1>List of All Movies</h1>
-    
+        <div class="wrapper2">
         <%for(i=0; i<movies.length; i++){%>
-            <div>
+            <div >
             <a href="/movies/<%=movies[i]._id%>">
                 <%=movies[i].title%>
             </a> 
             <form action="/movies/<%=movies[i]._id %>?_method=DELETE" method="POST">
                 <input type="submit" value="Delete Movie" class="button">
             </form>
-        </div>
+            </div>
         <%}%>
-    
+        </div>
+    </div>
 <%- include("../../partials/footer.ejs")%>

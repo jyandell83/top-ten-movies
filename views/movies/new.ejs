@@ -3,16 +3,20 @@
     <%} else {%>
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
+    <div class="movie-list">
     <h1>Add a Movie</h1>
-    <form action="/movies" method="POST">
-        Title
-        <input type="text" name="title" required><br>
-        Genre
-        <input type="text" name="genre"><br>
-        Year
-        <input type="number" name="year"><br>
-        Add Image URL
-        <input type="text" name="img"><br>
-        <input type="submit" value="Create Movie" class="button">
-    </form>
+        <div class="container">
+            <form action="/movies" method="POST">
+                Title
+                <input type="text" name="title" required><br>
+                Genre
+                <input type="text" name="genre"><br>
+                Year
+                <input type="number" name="year"><br>
+                Add Image URL
+                <input type="text" name="img"><br>
+                <input type="submit" value="Create Movie" class="button">
+            </form>
+        </div>
+    </div>
 <%- include("../../partials/footer.ejs")%>
