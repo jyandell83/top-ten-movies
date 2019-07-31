@@ -20,4 +20,6 @@ router.get("/:id/edit", userController.editUser)
 
 router.put("/:id", userController.updateTopTen)
 
+router.put("/likes/:id", userController.updateLikes)
+
 module.exports = router
