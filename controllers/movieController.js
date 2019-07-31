@@ -32,7 +32,6 @@ const movieController = {
         try  {
             const foundMovie = await Movies.findById(req.params.id);
             const foundComments = await Comments.find({movie: req.params.id}).populate("author");
-            console.log(foundComments[0].author[0].userName, "<-------comment author username")
             res.render('movies/show.ejs', {
                 movie: foundMovie,
                 session: req.session,
