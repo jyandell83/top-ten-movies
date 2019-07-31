@@ -32,7 +32,7 @@
     </div>
   <div class="comment-box">
   <%for (let i = 0; i < comments.length; i++)  {%>
-    <p class="cmnt"><%=comments[i].content%></p>
+    <p class="cmnt"><%=comments[i].author[0].userName%>: "<%=comments[i].content%>"</p>
     <%}%>
 </div>
 <%- include("../../partials/footer.ejs")%>
