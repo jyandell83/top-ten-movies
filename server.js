@@ -1,7 +1,6 @@
 const express        = require('express');
 const mongoose = require("mongoose")
 const Movies = require("./models/Movies")
-// const bodyParser     = require('body-parser');
 const methodOverride = require('method-override');
 const session        = require('express-session');
 const app            = express();
@@ -33,7 +32,6 @@ app.use('/comments', commentRoutes);
 app.get('/', async (req, res, next) => {
     try{
         const foundMovies = await Movies.find({}).sort({score: "desc"})
-        console.log(foundMovies)
         res.render('index.ejs',  {
         session: req.session,
         movies: foundMovies

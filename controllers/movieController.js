@@ -22,7 +22,6 @@ const movieController = {
     postMovie: async (req,res, next)=>{
         try{
             const newMovie = await Movies.create(req.body)
-            console.log(newMovie)
             res.redirect("/movies")
         } catch(err){
             next(err)
@@ -43,8 +42,7 @@ const movieController = {
     },
     deleteMovie: async (req,res,next)  =>  {
         try  {
-            console.log('movie should be deleted');
-            const deletedMovie = await Movies.findByIdAndDelete(req.params.id);
+            await Movies.findByIdAndDelete(req.params.id);
             res.redirect('/movies');
         }  catch(err)  {
             next(err);
