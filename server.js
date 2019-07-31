@@ -7,6 +7,7 @@ const session        = require('express-session');
 const app            = express();
 const movieRoutes = require("./routes/movieRoutes")
 const userRoutes = require("./routes/userRoutes")
+const commentRoutes = require("./routes/commentRoutes")
 const logger = require("morgan")
 
 
@@ -26,6 +27,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.use('/movies', movieRoutes);
 app.use('/users', userRoutes);
+app.use('/comments', commentRoutes);
 
 
 app.get('/', async (req, res, next) => {
