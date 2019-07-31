@@ -3,26 +3,24 @@
     <%} else {%>
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
-    <h1><%= user.userName%> Show Page</h1>
+    <div class="movie-list">
+    <h1><%= user.userName%>'s Top Ten</h1>
     <ul class ="movie-list">
         <%for (let i =0; i< user.topTenMovies.length; i++) {%>
-            <li>#<%=i+1%> <%=user.topTenMovies[i].title%></li>
+            <a href = "/movies/<%=user.topTenMovies[i]._id%>"><li>#<%=i+1%> <%=user.topTenMovies[i].title%></li></a>
         <%}%>
     </ul>
-    <%if (session.userId == user._id)  {%>  
-    <div>
-    <a href="<%=user._id%>/edit"><button class="button">Edit Your Top Ten Movies</button></a>
-    <form action="/users/<%=user._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Account" class="button">
-    </form>
     </div>
+    <%if (session.userId == user._id)  {%>  
+        <form action="/users/<%=user._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete Account" class="button">
+        </form>
+    <a href="<%=user._id%>/edit"><button class="button">Edit Your Top Ten Movies</button></a>
+   
+
     <%}%>
-    <form action="/users/likes/<%=user._id%>?_method=PUT" method="POST">
- 
-        <input type="submit" name="isLiked" value="Like" class="button">
-    </form>
-    <form action="/users/likes/<%=user._id%>?_method=PUT" method="POST">
-        <input type="submit" name="isLiked" value="disLike" class="button">
-    </form>
+    
 
 <%- include("../../partials/footer.ejs")%>
+
+
