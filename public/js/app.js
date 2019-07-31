@@ -1,6 +1,9 @@
-// const likeButton = document.getElementById("likeButton")
+const likeButton = document.getElementById("likeButton")
 
 
+likeButton.addEventListener("click", ()=>{
+    console.log("liked")
+})
 // likeButton.addEventListener("click", ()=>{
     
 // })
