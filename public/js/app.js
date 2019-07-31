@@ -5,8 +5,8 @@
     
 // })
 
-const commentBtn = document.querySelector('#comment-btn');
+// const commentBtn = document.getElementById('comment-btn');
 
-commentBtn.addEventListener('click', ()  =>  {
-    location.reload();
-})
+// commentBtn.addEventListener('click', ()  =>  {
+//     location.reload();
+// })
