@@ -10,4 +10,10 @@
    </ul>
    <img src="<%=movie.img%>">
    <a href="<%=movie._id%>/edit"><button class="button">Edit Movie</button></a>
+   <form action="/comments" method="post">
+    <input type="text" name="movie" value="<%=movie._id%>"/><br/>
+    <input type="text" name="author" value="<%=session.userId%>"/><br/>
+    <textarea name="content"></textarea><br/>
+    <input type="submit" value="Post Comment"/>
+  </form>
 <%- include("../../partials/footer.ejs")%>

@@ -7,7 +7,7 @@ const commentController = require("../controllers/commentController")
 
 // router.get("/new", movieController.newMovie)
 
-// router.post("/", movieController.postMovie)
+router.post("/", commentController.postComment)
 
 // router.get("/:id", movieController.showMovie)
 
