@@ -3,11 +3,26 @@
     <%} else {%>
     <%- include("../../partials/headerLoggedOut.ejs")%>
     <%};%>
+    <div>
    <h1><%= movie.title%></h1>
-   <ul class="movie-list">
+   <ul>
        <li><%= movie.year%></li>
        <li><%= movie.genre%></li>
    </ul>
    <img src="<%=movie.img%>">
+    </div>
    <a href="<%=movie._id%>/edit"><button class="button">Edit Movie</button></a>
+   <%if (session.logged) {%>
+   <form action="/comments" method="post">
+    <input type="hidden" name="movie" value="<%=movie._id%>"/><br/>
+    <input type="hidden" name="author" value="<%=session.userId%>"/><br/>
+    <textarea name="content"></textarea><br/>
+    <input type="submit" id="comment-btn" value="Post Comment"/>
+  </form>
+  <%}%>
+  <div class="comment-box">
+  <%for (let i = 0; i < comments.length; i++)  {%>
+    <p class="cmnt"><%=comments[i].content%></p>
+    <%}%>
+</div>
 <%- include("../../partials/footer.ejs")%>

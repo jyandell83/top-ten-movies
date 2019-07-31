@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const Movies = require("../models/Movies")
+const Comments = require("../models/Comments")
 
 const movieController = {
     movieMain: async (req,res, next)  =>  {
@@ -30,10 +31,13 @@ const movieController = {
     showMovie: async (req,res,next)  =>  {
         try  {
             const foundMovie = await Movies.findById(req.params.id);
+            const foundComments = await Comments.find({movie: req.params.id});
+            console.log(foundComments);
             console.log(foundMovie);
             res.render('movies/show.ejs', {
                 movie: foundMovie,
-                session: req.session
+                session: req.session,
+                comments: foundComments
             });
         } catch(err)  {
             next(err);
