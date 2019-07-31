@@ -11,7 +11,7 @@ body  {
 .wrapper2  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 25px;
+    grid-gap: 40px;
 }
 nav  {
     grid-column: 1 / 5;
@@ -67,6 +67,7 @@ a:hover {
     height: 30px;
     border: 1px solid #F27052;
     transition:background-color 0.3s, color 0.3s ease-in-out;
+    margin: 20px 0 0 0;
 }
 .button:hover  {
     background-color: #F27294;
