@@ -15,6 +15,7 @@ body  {
 }
 nav  {
     grid-column: 1 / 5;
+    padding-bottom: 20px;
 }
 nav ul {
     list-style-type: none;
@@ -81,6 +82,14 @@ a:hover {
     
     text-align: right;
 }
+.show-movie-list  {
+    grid-column: 2 / 4;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.comment-box  {
+    grid-column: 2 / 4;
+}
 .comment-box > p {
     border: 1px solid #32738C;
 }
@@ -90,13 +99,14 @@ a:hover {
 #movie-icon  {
     font-size: 50px;
 }
-/* h1  {
-    grid-column: 1 / 5;
-} */
+
 #moto{
     justify-self: end;
     font-weight: 500;
     text-decoration: none;
+}
+#edit-movie-button  {
+    padding-top: 40px;
 }
 li {
     list-style-type: none;
