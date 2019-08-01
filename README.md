@@ -1,7 +1,7 @@
 # MyTopTen
 
 ## Concept
-A CRUD app using RESTful routes where movie fans can create a top ten list of their all-time favorite movies in order to share with the world. This website is a forum for movie fans to connect with friends and make new friends while discussing cinema.
+A CRUD app using RESTful routes where movie fans can create a top ten list of their all-time favorite movies in order to share with the world. This website is a forum for movie fans to connect with friends and make new friends while discussing cinema. This was a collaboration between [Narek](https://mytopten.herokuapp.com/) and [Jeremy](https://github.com/jyandell83/) in a one week sprint of pair programming.
 
 ## Check out the Site
 [MyTopTen](https://mytopten.herokuapp.com/)
