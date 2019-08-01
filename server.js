@@ -9,7 +9,8 @@ const userRoutes = require("./routes/userRoutes")
 const commentRoutes = require("./routes/commentRoutes")
 const logger = require("morgan")
 
-
+require('dotenv').config()
+const PORT = process.env.PORT;
 //require database
 require('./db/db');
 //middleware
@@ -43,7 +44,7 @@ app.get('/', async (req, res, next) => {
 
 });
 
-app.listen(3000, () => {
-    console.log('listening..... on port 3000');
+app.listen(PORT, () => {
+    console.log(`listening..... on port ${PORT}`);
   });
 
