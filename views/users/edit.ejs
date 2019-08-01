@@ -3,7 +3,7 @@
   <%} else {%>
   <%- include("../../partials/headerLoggedOut.ejs")%>
   <%};%>
-    <h1><%= user.userName%> Edit Page</h1>
+    <h1><%= user.userName%>, pick your Top Ten here:</h1>
     <form action="/users/<%=user._id%>?_method=PUT" method="POST">
       <%for(j=0;j<10;j++){%>
         <select name="<%=j%>">
