@@ -5,6 +5,7 @@
 ## User Stories
 
 ## Initial Wireframe
+![Rough Wireframe](https://i.imgur.com/3XN2GXU.jpg)
 
 ## Next Steps
 
