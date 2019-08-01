@@ -45,6 +45,7 @@ const userController = {
                     req.session.userId = foundUser._id
                     req.session.userName = foundUser.userName
                     req.session.logged = true
+                    req.session.message = ""
 
                     res.redirect("/users")
                 }else{
