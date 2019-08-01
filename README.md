@@ -11,10 +11,10 @@ A CRUD app using RESTful routes where movie fans can create a top ten list of th
 
 
 ## Next Steps
--Sort Movies alphabetically.
--Add likes to users' Top Tens.
--Delete and/or edit comments
--Deducting score of the movie if deleted from top ten
+- Sort Movies alphabetically.
+- Add likes to users' Top Tens.
+- Delete and/or edit comments
+- Deducting score of the movie if deleted from top ten
 
 ## Technologies Used
 - MongoDB
