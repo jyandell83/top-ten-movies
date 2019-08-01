@@ -5,8 +5,18 @@
 <%};%>
 <div class="movie-list">
 <h1>Global Top Ten</h1>
-<ul>
-   <li>Placeholder for Top Ten</li>
-</ul>
+
+    <% if (movies[0] === undefined) {%>
+    <ul>
+        <li>Something</li>
+    </ul>
+    <%}else {%>
+   <ul>
+   <%for (i=0; i<10; i++){ %>
+       <li><a href = "/movies/<%=movies[i]._id%>">#<%=i+1%> <%=movies[i].title%></a></li>
+   <%}%>
+    </ul>
+   <%}%>
+
 </div>
 <%- include("../partials/footer.ejs")%>
