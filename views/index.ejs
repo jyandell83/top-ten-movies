@@ -6,7 +6,7 @@
 <div class="movie-list">
 <h1>Global Top Ten</h1>
 
-    <% if (movies[0] === undefined) {%>
+    <% if (movies[0] === undefined || movies.length < 10) {%>
     <ul>
         <li>Something</li>
     </ul>
