@@ -18,6 +18,7 @@ A CRUD app using RESTful routes where movie fans can create a top ten list of th
 - Add likes to users' Top Tens.
 - Delete and/or edit comments
 - Deducting score of the movie if deleted from top ten
+- Responsive Design
 
 ## Technologies Used
 - MongoDB
